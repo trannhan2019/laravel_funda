@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +14,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('register', [RegisteredUserController::class, 'store'])
-    ->middleware('guest')
+Route::post('register', [AuthController::class, 'register'])
     ->name('register');
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
